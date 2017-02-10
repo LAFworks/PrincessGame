@@ -19,12 +19,11 @@
     <object>objects\obj_grass</object>
     <object>objects\obj_floor</object>
     <object>objects\obj_player_overworld</object>
-    <object>objects\obj_event</object>
-    <object>objects\test_resetLoad</object>
     <object>objects\Controller</object>
     <object>objects\Enemy</object>
     <object>objects\Player</object>
     <object>objects\Player2</object>
+    <object>objects\Random</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_overworld</room>
