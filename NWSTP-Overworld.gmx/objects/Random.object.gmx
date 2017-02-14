@@ -72,8 +72,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (keyboard_check_direct('A') || keyboard_check_direct('W') || keyboard_check_direct('D') || keyboard_check_direct('S'))
+            <string>if (keyboard_check_direct(ord('A')) or keyboard_check_direct(ord('W')) or keyboard_check_direct(ord('D')) or keyboard_check_direct(ord('S')))
 {
+    //show_debug_message("Not working");
     if (global.has_triggered == false)
     {
         inp= irandom(99);
@@ -101,13 +102,12 @@
         {
             room_goto(room0);
         }   //Loot   
+        else
+        {
+            global.has_triggered = true;
+            alarm[0]=15;
+        }
     }
-    /*else
-    {
-        global.has_triggered = true;
-        alarm[0]=15;
-    }*/
-    
 }
 </string>
           </argument>
