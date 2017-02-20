@@ -26,7 +26,36 @@
           <argument>
             <kind>1</kind>
             <string>global.has_triggered =false; 
+step_trigg =false;
 
+global.combat_floor = 74
+global.trap_floor = 79
+global.merchant_floor = 84
+global.event_floor = 89
+global.loot_floor = 94
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>step_trigg =false;
 </string>
           </argument>
         </arguments>
@@ -76,29 +105,29 @@
 {
     //show_debug_message("Not working");
     if (global.has_triggered == false)
-    {
+    {   
         inp= irandom(99);
-        if (inp &gt;=74 and inp &lt;79)
+        if (inp &gt;=global.combat_floor and inp &lt;global.trap_floor)
         { 
             room_goto(room0);
         }   //Combat
         
-        else if (inp &gt;=79 and inp &lt; 84)
+        else if (inp &gt;=global.trap_floor and inp &lt; global.merchant_floors)
         {
             room_goto(room0);
         }   //Traps
         
-        else if (inp &gt;=84 and inp &lt; 89)
+        else if (inp &gt;=global.merchant_floors and inp &lt; global.event_floors)
         {
             room_goto(room0);
         }   //Merchant
         
-        else if (inp &gt;=89 and inp &lt; 94)
+        else if (inp &gt;=global.event_floor and inp &lt; global.loot_floor)
         {
             room_goto(room0);
         }   //Event
         
-        else if (inp &gt;=94 and inp &lt; 99)
+        else if (inp &gt;=global.loot_floor and inp &lt; 99)
         {
             room_goto(room0);
         }   //Loot   
