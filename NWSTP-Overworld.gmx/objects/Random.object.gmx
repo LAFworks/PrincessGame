@@ -55,8 +55,7 @@ global.loot_floor = 94
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>step_trigg =false;
-</string>
+            <string></string>
           </argument>
         </arguments>
       </action>
@@ -104,20 +103,20 @@ global.loot_floor = 94
             <string>if (keyboard_check_direct(ord('A')) or keyboard_check_direct(ord('W')) or keyboard_check_direct(ord('D')) or keyboard_check_direct(ord('S')))
 {
     //show_debug_message("Not working");
-    if (global.has_triggered == false)
+    if (global.has_triggered == false and obj_player_overworld.isMoving == false)
     {   
         inp= irandom(99);
-        if (inp &gt;=global.combat_floor and inp &lt;global.trap_floor)
+        if (inp &gt;=global.combat_floor and inp &lt; global.trap_floor)
         { 
             room_goto(room0);
         }   //Combat
         
-        else if (inp &gt;=global.trap_floor and inp &lt; global.merchant_floors)
+        else if (inp &gt;=global.trap_floor and inp &lt; global.merchant_floor)
         {
             room_goto(room0);
         }   //Traps
         
-        else if (inp &gt;=global.merchant_floors and inp &lt; global.event_floors)
+        else if (inp &gt;=global.merchant_floor and inp &lt; global.event_floor)
         {
             room_goto(room0);
         }   //Merchant
