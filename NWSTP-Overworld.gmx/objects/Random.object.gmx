@@ -113,22 +113,22 @@ global.loot_floor = 94
         
         else if (inp &gt;=global.trap_floor and inp &lt; global.merchant_floor)
         {
-            room_goto(room0);
+            //room_goto(room0);
         }   //Traps
         
         else if (inp &gt;=global.merchant_floor and inp &lt; global.event_floor)
         {
-            room_goto(room0);
+            //room_goto(room0);
         }   //Merchant
         
         else if (inp &gt;=global.event_floor and inp &lt; global.loot_floor)
         {
-            room_goto(room0);
+            room_goto(room1);
         }   //Event
         
         else if (inp &gt;=global.loot_floor and inp &lt; 99)
         {
-            room_goto(room0);
+            //room_goto(room0);
         }   //Loot   
         else
         {

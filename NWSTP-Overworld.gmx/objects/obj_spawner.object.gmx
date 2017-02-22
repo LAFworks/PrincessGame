@@ -48,7 +48,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (mouse_check_button_released(mb_left) and isdrawn =false)
+            <string>if (mouse_check_button_released(mb_left) and isdrawn ==false)
 {
     scr_text("A young girl, tears welling in her eyes, approaches you from the street.
 You might break down in tears just looking at her. “My brother and I were playing near the spider caves and he fell down a hole.
@@ -84,9 +84,10 @@ You pick him up and make your way out of the cave.
     isdrawn =true;
 }
 
-if (mouse_check_button_released(mb_left) and isdrawn =true)
+else if (mouse_check_button_released(mb_left) and isdrawn ==true)
 {
-    room_goto(
+    isdrawn = false;
+    room_goto(rm_overworld);
 }
 
 </string>
