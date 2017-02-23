@@ -10,7 +10,7 @@
   <persistent>0</persistent>
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
-  <code>scr_text("&lt;CLICK IN THE TOP-LEFT CORNER TO BEGIN THE DIALOGUE&gt;",0.5,100,100);</code>
+  <code>scr_text("&lt;CLICK ANYWHERE TO BEGIN THE DIALOGUE&gt;",0.5,100,100);</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>

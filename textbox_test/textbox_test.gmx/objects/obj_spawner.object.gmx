@@ -59,7 +59,7 @@ You pick him up and make your way out of the cave.
 “Thank you so much!“ the two kids beam at you, before running back towards the caves to play some more.
             
               Stupid kids...",
-            0.2,mouse_x,mouse_y);
+            0.2,1,1);
             
 /*    scr_text("“My brother and I were playing near the spider caves and he fell down a hole.
              I can’t see him, but I can hear him yelling. Please, you have to help him!”...",
@@ -83,12 +83,12 @@ You pick him up and make your way out of the cave.
             */    
     isdrawn =true;
 }
-
+/*
 if (mouse_check_button_released(mb_left) and isdrawn =true)
 {
     room_goto(
 }
-
+*/
 </string>
           </argument>
         </arguments>
