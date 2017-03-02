@@ -108,27 +108,27 @@ global.loot_floor = 94
         inp= irandom(99);
         if (inp &gt;=global.combat_floor and inp &lt; global.trap_floor)
         { 
-            room_goto(room0);
+            room_goto(rm_combat);
         }   //Combat
         
         else if (inp &gt;=global.trap_floor and inp &lt; global.merchant_floor)
         {
-            //room_goto(room0);
+            room_goto(rm_trap);
         }   //Traps
         
         else if (inp &gt;=global.merchant_floor and inp &lt; global.event_floor)
         {
-            //room_goto(room0);
+            room_goto(rm_merchant);
         }   //Merchant
         
         else if (inp &gt;=global.event_floor and inp &lt; global.loot_floor)
         {
-            room_goto(room1);
+            room_goto(rm_event);
         }   //Event
         
         else if (inp &gt;=global.loot_floor and inp &lt; 99)
         {
-            //room_goto(room0);
+            room_goto(rm_loot);
         }   //Loot   
         else
         {

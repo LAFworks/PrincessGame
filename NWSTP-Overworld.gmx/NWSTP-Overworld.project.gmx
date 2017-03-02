@@ -36,14 +36,19 @@
     <object>objects\Player</object>
     <object>objects\Player2</object>
     <object>objects\Random</object>
-    <object>objects\obj_spawner</object>
+    <object>objects\Spawn_Text_Event</object>
+    <object>objects\Spawn_Text_Trap</object>
+    <object>objects\Spawn_Text_Merchant</object>
+    <object>objects\Spawn_Text_Loot</object>
     <object>objects\obj_text</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_overworld</room>
-    <room>rooms\room2</room>
-    <room>rooms\room0</room>
-    <room>rooms\room1</room>
+    <room>rooms\rm_trap</room>
+    <room>rooms\rm_combat</room>
+    <room>rooms\rm_event</room>
+    <room>rooms\rm_merchant</room>
+    <room>rooms\rm_loot</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
