@@ -217,7 +217,7 @@ draw_true4=false;
             {
                 draw_true1=true; 
                 alarm[1] = 120; //Triggers text alarm
-                Player.Health-= Enemy.Attack;
+                global.p1_health -= Enemy.Attack;
                 alarm[0] = 120; //Moves turn to next in list with delay
                 break;
             }
@@ -225,7 +225,7 @@ draw_true4=false;
             {
                 draw_true2=true;
                 alarm[2] = 120;
-                Player2.Health-= Enemy.Attack;  //Damage calc
+                global.p2_health -= Enemy.Attack;  //Damage calc
                 alarm[0] = 120;
                 break;
             }
@@ -250,7 +250,7 @@ else if turn == Player1turn and !isYourTurn
             {
                 draw_true3=true;
                 alarm[3] = 120;
-                Enemy.Health-=Player.Attack;
+                Enemy.Health-= global.p1_attack;
                 alarm[0] = 120;
                 break;
             }
@@ -275,7 +275,7 @@ else if turn == Player2turn and !isYourTurn
             {
                 draw_true4=true;
                 alarm[4] = 120;
-                Enemy.Health-=Player2.Attack;
+                Enemy.Health-= global.p2_attack;
                 alarm[0] = 120;
                 break;
             }
@@ -321,11 +321,11 @@ else if !instance_exists(Player) and !instance_exists(Player2)
             <kind>1</kind>
             <string>if (instance_exists(Player))
 {
-    draw_healthbar(Player.x-75, Player.y-75, Player.x+75, Player.y-60, Player.Health, c_black, c_red, c_lime, 0, true, true);
+    draw_healthbar(Player.x-75, Player.y-75, Player.x+75, Player.y-60, global.p1_health, c_black, c_red, c_lime, 0, true, true);
 }
 if (instance_exists(Player2))
 {
-    draw_healthbar(Player2.x-75, Player2.y-75, Player2.x+75, Player2.y-60, Player2.Health, c_black, c_red, c_lime, 0, true, true);
+    draw_healthbar(Player2.x-75, Player2.y-75, Player2.x+75, Player2.y-60, global.p2_health, c_black, c_red, c_lime, 0, true, true);
 }
 if (instance_exists(Enemy))
 {
