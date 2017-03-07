@@ -183,6 +183,23 @@ global.loot_floor = 94
           <argument>
             <kind>1</kind>
             <string>randomize();
+
+global.p1_health = 100;
+global.p1_speed = 2;
+global.p1_attack = 5;
+
+global.p2_health = 50; 
+global.p2_speed= 4;
+global.p2_attack = 10;
+
+global.player_inventory = ds_map_create();
+//Created map for player inventory
+//For testing will add a weapons to the inventory and equip them
+ds_map_add(global.player_inventory, "Sword", 1);
+//This value keeps track of the number of an item a player has in their inventory
+global.item_list = ds_map_create();
+ds_map_add(global.item_list, "Sword", 5);
+//Adds to the total item list for testing will be loaded in the future
 </string>
           </argument>
         </arguments>

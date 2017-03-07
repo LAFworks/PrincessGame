@@ -58,17 +58,8 @@
 
 else if (mouse_check_button_released(mb_left) and isdrawn ==true)
 {
-    if (instance_exists(Player2))
-    {
-        Player2.Attack -= 2;
-    }
-    else
-    {
-        if (instance_exists(Player))
-        {
-            Player.Attack -= 2;
-        }
-    }
+    global.p2_attack -= 1;
+
     isdrawn = false;
     room_goto(rm_overworld);
 }
