@@ -113,7 +113,7 @@ if (push == 1)
           <argument>
             <kind>1</kind>
             <string>//Padding for inside dialogue box
-var padding = 32;
+var padding = 10;
 
 // sample text for spacing purposes
 var sampleTxt = "sample";
@@ -140,14 +140,17 @@ draw_line_width(view_xview, (view_yview+view_hview)-bw/2, view_xview+view_wview,
 
 //draw menu items
 var m 
+var menuHeight = 600
 for (m = 0; m &lt; array_length_1d(menu); m+= 1)
 {
-    draw_text(x + space, y + (m * space), string(menu[m]));
-    /* TODO fix this code to restrict menu options to interior of borders ^
-    *
-    * draw_set_color(c_white);
-    * draw_text_ext(view_xview+padding,((view_yview+view_hview)-max_height)-(padding/2),menu[m],sTxt_height,max_width);
-    */
+menuHeight += 40;
+    //draw_text(x + space, y + (m * space), string(menu[m]));
+    // TODO fix this code to restrict menu options to interior of borders ^
+    
+     draw_set_color(c_white);
+     draw_text_ext(view_xview+padding,menuHeight,menu[m],sTxt_height,max_width);
+
+    
 }
 //TODO create sprite for menu item chooser
 //draw_sprite(sprite_index, 0, x + 16, y+pos*space);
