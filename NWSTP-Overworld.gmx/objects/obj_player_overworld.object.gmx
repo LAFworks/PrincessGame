@@ -120,7 +120,7 @@ encounter=false;
     
     if (keyboard_check(ord('E')))
     {
-        global.p1_attack+= ds_map_find_value(global.item_list, "Sword");
+        global.p1_attack += ds_map_find_value(global.item_list, "Sword");
     }
 }
 

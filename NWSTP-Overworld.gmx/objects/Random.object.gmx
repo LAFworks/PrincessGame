@@ -100,7 +100,12 @@ global.loot_floor = 94
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (keyboard_check_direct(ord('A')) or keyboard_check_direct(ord('W')) or keyboard_check_direct(ord('D')) or keyboard_check_direct(ord('S')))
+            <string>if (keyboard_check(vk_enter))
+{
+    room_goto(rm_combat);
+}
+//Debug for combat
+if (keyboard_check_direct(ord('A')) or keyboard_check_direct(ord('W')) or keyboard_check_direct(ord('D')) or keyboard_check_direct(ord('S')))
 {
     //show_debug_message("Not working");
     if (global.has_triggered == false and obj_player_overworld.isMoving == false)
@@ -135,6 +140,7 @@ global.loot_floor = 94
             global.has_triggered = true;
             alarm[0]=30;
         }
+        
     }
 }
 </string>
