@@ -37,6 +37,36 @@ space = 64;
 //menu sprite position 
 mpos = 0;
 
+isYourTurn = false;
+//Future sorting algorithm for speed stats
+Enemyturn= 1;
+Player1turn= 2;
+Player2turn= 3;
+turn= 1;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>isYourTurn= false;
 </string>
           </argument>
         </arguments>
@@ -59,7 +89,7 @@ mpos = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///cursor movement on menu
+            <string>///cursoe movement on menu
 
 var move = 0;
 //moves along y-coordinates (up and down)
@@ -81,6 +111,54 @@ if (move != 0)
         mpos = 0
     }
 }
+
+if turn == Enemyturn and !isYourTurn
+{
+    if !instance_exists(Enemy)  //Checks to make sure the enemy is still there
+    {
+        turn+=1;
+    }
+            
+    else
+    {
+        isYourTurn = true;
+        while true
+        { 
+            target= irandom(1)
+            if target == 0 and instance_exists(Player)
+            {
+                global.p1_health -= Enemy.Attack;
+                show_debug_message(string(global.p1_health));
+                show_debug_message(string(turn));
+                alarm[0] = 120;
+                break;
+            }
+            else if target == 1 and instance_exists(Player2)
+            {
+                global.p2_health -= Enemy.Attack;  //Damage calc
+                show_debug_message(string(global.p2_health));
+                show_debug_message(string(turn));
+                alarm[0] = 120;
+                break;
+            }
+        }
+    }
+    turn+=1;
+}
+
+if !instance_exists(Enemy)
+        {
+            global.has_triggered =true;
+            alarm[5]= 150;
+            room_goto(rm_overworld);
+        }
+        
+        else if !instance_exists(Player) and !instance_exists(Player2)
+        {
+            global.has_triggered =true;
+            alarm[5]= 150;
+            room_goto(rm_overworld);
+        } 
 
 var push;
 push = max(keyboard_check_released(vk_enter),keyboard_check_released(vk_shift),keyboard_check_released(vk_space), 0);
@@ -113,7 +191,7 @@ if (push == 1)
           <argument>
             <kind>1</kind>
             <string>//Padding for inside dialogue box
-var padding = 10;
+var padding = 32;
 
 // sample text for spacing purposes
 var sampleTxt = "sample";
@@ -140,17 +218,14 @@ draw_line_width(view_xview, (view_yview+view_hview)-bw/2, view_xview+view_wview,
 
 //draw menu items
 var m 
-var menuHeight = 600
 for (m = 0; m &lt; array_length_1d(menu); m+= 1)
 {
-menuHeight += 40;
-    //draw_text(x + space, y + (m * space), string(menu[m]));
-    // TODO fix this code to restrict menu options to interior of borders ^
-    
-     draw_set_color(c_white);
-     draw_text_ext(view_xview+padding,menuHeight,menu[m],sTxt_height,max_width);
-
-    
+    draw_text(x + space, y + (m * space), string(menu[m]));
+    /* TODO fix this code to restrict menu options to interior of borders ^
+    *
+    * draw_set_color(c_white);
+    * draw_text_ext(view_xview+padding,((view_yview+view_hview)-max_height)-(padding/2),menu[m],sTxt_height,max_width);
+    */
 }
 //TODO create sprite for menu item chooser
 //draw_sprite(sprite_index, 0, x + 16, y+pos*space);
