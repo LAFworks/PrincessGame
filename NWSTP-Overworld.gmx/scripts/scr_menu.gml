@@ -25,8 +25,9 @@ switch(mpos)
                 show_debug_message(string(Enemy.Health));
                 show_debug_message(string(turn));
                 alarm[0] = 120;
+                turn=3;  
                 break;
-                turn=3;
+                
             }
         }
         
@@ -44,8 +45,8 @@ switch(mpos)
                 show_debug_message(string(Enemy.Health));
                 show_debug_message(string(turn));
                 alarm[0] = 120;
-                break;
                 turn =1;
+                break;
             }
             
         }
