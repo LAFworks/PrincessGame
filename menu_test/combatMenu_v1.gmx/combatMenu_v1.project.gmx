@@ -18,6 +18,7 @@
   </fonts>
   <objects name="objects">
     <object>objects\obj_menu</object>
+    <object>objects\obj_menu_new</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>

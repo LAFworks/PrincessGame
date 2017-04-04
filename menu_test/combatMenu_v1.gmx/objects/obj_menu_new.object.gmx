@@ -26,9 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>//replace "temp" with actual menu options
-menu[0] = "temp1";
-menu[1] = "temp2";
-menu[2] = "temp3";
+menu[0] = "temp4";
+menu[1] = "temp5";
+menu[2] = "temp6";
 
 //vertical space between menu items, for drawing's sake
 space = 64;

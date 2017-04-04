@@ -122,7 +122,7 @@ if k_action
 if global.tboxActive
 {
     //(string variable, font, key press, speed)
-    sampleText = scr_huddledMan_init(sampleText, fnt_default, k_action,2); //lower number = faster
+    sampleText = scr_textbox_huddledMan_init(sampleText, fnt_default, k_action,2); //lower number = faster
 }
 </string>
           </argument>

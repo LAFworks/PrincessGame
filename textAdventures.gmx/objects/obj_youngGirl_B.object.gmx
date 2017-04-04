@@ -123,7 +123,7 @@ global.tboxActive = true; //Will activate Textbox
 if global.tboxActive
 {
     //(string variable, font, key press, speed)
-    sampleText = scr_textbox(sampleText, fnt_default, vk_space,2); //lower number = faster
+    sampleText = scr_textbox_youngGirl_finish(sampleText, fnt_default, vk_space,2); //lower number = faster
 }
 </string>
           </argument>

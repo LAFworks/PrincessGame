@@ -11,7 +11,8 @@ switch(mpos)
 {
     case 0: 
     {   
-        obj_menu_new; 
+    show_debug_message("Inside case 0");
+        room_goto(txt_huddledMan_A);
          break;
     }
     default:
