@@ -35,8 +35,13 @@
     <object>objects\obj_player_overworld</object>
     <object>objects\Controller</object>
     <object>objects\Enemy</object>
+    <object>objects\Enemy2</object>
+    <object>objects\Enemy3</object>
+    <object>objects\Enemy4</object>
+    <object>objects\Enemy5</object>
     <object>objects\Player</object>
     <object>objects\Player2</object>
+    <object>objects\Player3</object>
     <object>objects\Random</object>
     <object>objects\Spawn_Text_Event</object>
     <object>objects\Spawn_Text_Trap</object>

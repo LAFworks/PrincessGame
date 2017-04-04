@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>gridSize = 64;     // Should be power of 2 (...8,16,32...)
+            <string>gridSize = 32;     // Should be power of 2 (...8,16,32...)
 isMoving = false;  // Keeps track of when player is moving
 moveTimer = 0;  // Counts down from grid size each step
 moveSpeed = 4;     // Do not set higher than grid size!
@@ -83,39 +83,51 @@ encounter=false;
 {
     if (keyboard_check(ord('D')))
     {
-        isMoving = true;
-        moveTimer = gridSize;
-        speedX = moveSpeed;
-        speedY = 0;
+        if !place_meeting(x+32, y, obj_floor)
+        {
+            isMoving = true;
+            moveTimer = gridSize;
+            speedX = moveSpeed;
+            speedY = 0;
+        }
     }
 
     else if (keyboard_check(ord('W')))
     {
-        isMoving = true;
-        moveTimer = gridSize;
-        speedX = 0;
-        speedY = -moveSpeed;
+        if !place_meeting(x, y-32, obj_floor)
+        {
+            isMoving = true;
+            moveTimer = gridSize;
+            speedX = 0;
+            speedY = -moveSpeed;
+        }
     }
 
     else if (keyboard_check(ord('A')))
     {
-        isMoving = true;
-        moveTimer = gridSize;
-        speedX = -moveSpeed;
-        speedY = 0;
+        if !place_meeting(x-32, y, obj_floor)
+        {
+            isMoving = true;
+            moveTimer = gridSize;
+            speedX = -moveSpeed;
+            speedY = 0;
+        }
     }
 
     else if (keyboard_check(ord('S')))
     {
-        isMoving = true;
-        moveTimer = gridSize;
-        speedX = 0;
-        speedY = moveSpeed;
+        if !place_meeting(x, y+32, obj_floor)
+        {
+            isMoving = true;
+            moveTimer = gridSize;
+            speedX = 0;
+            speedY = moveSpeed;
+        }
     }
     
     if (keyboard_check(ord('P')))
     {
-        show_debug_message(string(global.p1_attack));
+        show_debug_message(string(global.p2_attack));
     }
     
     if (keyboard_check(ord('E')))

@@ -29,20 +29,16 @@
 
 //replace "temp" with actual menu options
 menu[0] = "Attack";
-menu[1] = "temp2";
-menu[2] = "temp3";
+menu[1] = "Heal";
+menu[2] = "Run";
 
 //vertical space between menu items, for drawing's sake
 space = 64;
 //menu sprite position 
 mpos = 0;
 
-isYourTurn = false;
-//Future sorting algorithm for speed stats
-Enemyturn= 1;
-Player1turn= 2;
-Player2turn= 3;
-turn= 1;
+text =1;
+
 
 </string>
           </argument>
@@ -96,7 +92,7 @@ var move = 0;
 move -= max(keyboard_check_pressed(vk_up), keyboard_check_pressed(ord("W")),0);
 
 //x-coord
-move += max(keyboard_check_pressed(vk_down), keyboard_check_pressed(ord("s")),0);
+move += max(keyboard_check_pressed(vk_down), keyboard_check_pressed(ord("S")),0);
 
 if (move != 0)
 {
@@ -112,6 +108,40 @@ if (move != 0)
     }
 }
 
+/*if keyboard_check_pressed(ord("W"))
+{
+    mpos -= 1;
+    if mpos &lt; 0
+    {
+        mpos = array_length_1d(menu)-1;
+    }
+}
+
+if keyboard_check_pressed(ord("S"))
+{
+    mpos += 1;
+    if mpos &gt; array_length_1d(menu)
+    {
+        mpos = 0;
+    }
+}*/
+
+if turn == global.p1_turn and text == 1
+{
+    show_debug_message("It is Player 1's Turn");
+    text =0;
+}
+if turn == global.p2_turn and text == 1
+{
+    show_debug_message("It is Player 2's Turn");
+    text= 0;
+}
+if turn == global.p3_turn and text == 1
+{
+    show_debug_message("It is Player 3's Turn");
+    text = 0;
+}
+
 var push;
 push = max(keyboard_check_released(vk_enter),keyboard_check_released(vk_shift),keyboard_check_released(vk_space), 0);
 
@@ -122,11 +152,18 @@ if (push == 1)
 
 //If it is the enemies turn do their attacks/actions
 //This should allow players to traverse the menu during enemy combat
-if turn == 1 and !isYourTurn
+if turn == e1_turn and !isYourTurn
 {
     if !instance_exists(Enemy)  //Checks to make sure the enemy is still there
     {
-        turn+=1;
+        if (turn ==8)
+        {
+            turn =1;
+        }
+        else
+        {
+           turn+=1;
+        }
     }
     
     else
@@ -134,47 +171,361 @@ if turn == 1 and !isYourTurn
         isYourTurn = true;
         while true
         { 
-            target= irandom(1)
+            target= irandom(2)
             if target == 0 and instance_exists(Player)
             {
-                draw_true1=true; 
-                alarm[1] = 120; //Triggers text alarm
-                global.p1_health -= Enemy.Attack;
+                global.p1_health -= global.e1_attack;
                 alarm[0] = 120; //Moves turn to next in list with delay
-                show_debug_message(string(global.p1_health));
-                show_debug_message(string(turn));
+                show_debug_message(string("It's the first Snake's turn"));
+                show_debug_message("Attacked Player1 for "+string(global.e1_attack)+ " damage.");
+                show_debug_message("Player1 has " +string(global.p1_health)+ " left.");
                 break;
             }
             else if target == 1 and instance_exists(Player2)
             {
-                draw_true2=true;
-                alarm[2] = 120;
-                global.p2_health -= Enemy.Attack;  //Damage calc
+                global.p2_health -= global.e1_attack;  //Damage calc
                 alarm[0] = 120;
-                show_debug_message(string(global.p2_health));
-                show_debug_message(string(turn));
+                show_debug_message("It is the first Snake's turn");
+                show_debug_message("Attacked Player2 for "+string(global.e1_attack)+ " damage.");
+                show_debug_message("Player2 has " +string(global.p2_health)+ " left.");
+                break;
+            }
+            else if target == 2 and instance_exists(Player3)
+            {
+                global.p3_health -= global.e1_attack;  //Damage calc
+                alarm[0] = 120;
+                show_debug_message(string("It is the first snakes turn"));
+                show_debug_message("Attacked Player3 for "+string(global.e1_attack)+ " damage.");
+                show_debug_message("Player3 has " +string(global.p3_health)+ " left.");
                 break;
             }
         }
     }
-    turn+=1;
+    if (turn ==8)
+    {
+        turn =1;
+    }
+    else
+    {
+        turn+=1;
+    }
+}
+
+if turn == e2_turn and !isYourTurn
+{
+    if !instance_exists(Enemy2)  //Checks to make sure the enemy is still there
+    {
+        if (turn ==8)
+        {
+            turn =1;
+        }
+        else
+        {
+           turn+=1;
+        }
+    }
+    
+    else
+    {
+        isYourTurn = true;
+        while true
+        { 
+            target= irandom(2)
+            if target == 0 and instance_exists(Player)
+            {
+                global.p1_health -= global.e2_attack;
+                alarm[0] = 120; //Moves turn to next in list with delay
+                show_debug_message(string("It's the second Snake's turn"));
+                show_debug_message("Attacked Player1 for "+string(global.e2_attack)+ " damage.");
+                show_debug_message("Player1 has " +string(global.p1_health)+ " left.");
+                break;
+            }
+            else if target == 1 and instance_exists(Player2)
+            {
+                global.p2_health -= global.e2_attack;  //Damage calc
+                alarm[0] = 120;
+                show_debug_message(string("It's the second Snake's turn"));
+                show_debug_message("Attacked Player2 for "+string(global.e2_attack)+ " damage.");
+                show_debug_message("Player2 has " +string(global.p2_health)+ " left.");
+                break;
+            }
+            else if target == 2 and instance_exists(Player3)
+            {
+                global.p3_health -= global.e2_attack;  //Damage calc
+                alarm[0] = 120;
+                show_debug_message(string("It's the second Snake's turn"));
+                show_debug_message("Attacked Player3 for "+string(global.e2_attack)+ " damage.");
+                show_debug_message("Player3 has " +string(global.p3_health)+ " left.");
+                break;
+            }
+        }
+    }
+    if (turn ==8)
+    {
+        turn =1;
+    }
+    else
+    {
+        turn+=1;
+    }
+}
+
+if turn == e3_turn and !isYourTurn
+{
+    if !instance_exists(Enemy3)  //Checks to make sure the enemy is still there
+    {
+        if (turn ==8)
+        {
+            turn =1;
+        }
+        else
+        {
+           turn+=1;
+        }
+    }
+    
+    else
+    {
+        isYourTurn = true;
+        while true
+        { 
+            target= irandom(2)
+            if target == 0 and instance_exists(Player)
+            {
+                global.p1_health -= global.e3_attack;
+                alarm[0] = 120; //Moves turn to next in list with delay
+                show_debug_message(string("It's the third Snake's turn"));
+                show_debug_message("Attacked Player1 for "+string(global.e3_attack)+ " damage.");
+                show_debug_message("Player1 has " +string(global.p1_health)+ " left.");
+                break;
+            }
+            else if target == 1 and instance_exists(Player2)
+            {
+                global.p2_health -= global.e3_attack;  //Damage calc
+                alarm[0] = 120;
+                show_debug_message(string("It's the third Snake's turn"));
+                show_debug_message("Attacked Player2 for "+string(global.e3_attack)+ " damage.");
+                show_debug_message("Player2 has " +string(global.p2_health)+ " left.");
+                break;
+            }
+            else if target == 2 and instance_exists(Player3)
+            {
+                global.p3_health -= global.e3_attack;  //Damage calc
+                alarm[0] = 120;
+                show_debug_message(string("It's the third Snake's turn"));
+                show_debug_message("Attacked Player3 for "+string(global.e3_attack)+ " damage.");
+                show_debug_message("Player3 has " +string(global.p3_health)+ " left.");
+                break;
+            }
+        }
+    }
+    if (turn ==8)
+    {
+        turn =1;
+    }
+    else
+    {
+        turn+=1;
+    }
+}
+
+if turn == e4_turn and !isYourTurn
+{
+    if !instance_exists(Enemy4)  //Checks to make sure the enemy is still there
+    {
+        if (turn ==8)
+        {
+            turn =1;
+        }
+        else
+        {
+           turn+=1;
+        }
+    }
+    
+    else
+    {
+        isYourTurn = true;
+        while true
+        { 
+            target= irandom(2)
+            if target == 0 and instance_exists(Player)
+            {
+                global.p1_health -= global.e4_attack;
+                alarm[0] = 120; //Moves turn to next in list with delay
+                show_debug_message(string("It's the fourth Snake's turn"));
+                show_debug_message("Attacked Player1 for "+string(global.e4_attack)+ " damage.");
+                show_debug_message("Player1 has " +string(global.p1_health)+ " left.");
+                break;
+            }
+            else if target == 1 and instance_exists(Player2)
+            {
+                global.p2_health -= global.e4_attack;  //Damage calc
+                alarm[0] = 120;
+                show_debug_message(string("It's the fourth Snake's turn"));
+                show_debug_message("Attacked Player2 for "+string(global.e4_attack)+ " damage.");
+                show_debug_message("Player2 has " +string(global.p2_health)+ " left.");
+                break;
+            }
+            else if target == 2 and instance_exists(Player3)
+            {
+                global.p3_health -= global.e4_attack;  //Damage calc
+                alarm[0] = 120;
+                show_debug_message(string("It's the fourth Snake's turn"));
+                show_debug_message("Attacked Player3 for "+string(global.e4_attack)+ " damage.");
+                show_debug_message("Player3 has " +string(global.p3_health)+ " left.");
+                break;
+            }
+        }
+    }
+    if (turn ==8)
+    {
+        turn =1;
+    }
+    else
+    {
+        turn+=1;
+    }
+}
+
+if turn == e5_turn and !isYourTurn
+{
+    if !instance_exists(Enemy5)  //Checks to make sure the enemy is still there
+    {
+        if (turn ==8)
+        {
+            turn =1;
+        }
+        else
+        {
+           turn+=1;
+        }
+    }
+    
+    else
+    {
+        isYourTurn = true;
+        while true
+        { 
+            target= irandom(2)
+            if target == 0 and instance_exists(Player)
+            {
+                global.p1_health -= global.e5_attack;
+                alarm[0] = 120; //Moves turn to next in list with delay
+                show_debug_message(string("It's the fifth Snake's turn"));
+                show_debug_message("Attacked Player1 for "+string(global.e5_attack)+ " damage.");
+                show_debug_message("Player1 has " +string(global.p1_health)+ " left.");
+                break;
+            }
+            else if target == 1 and instance_exists(Player2)
+            {
+                global.p2_health -= global.e5_attack;  //Damage calc
+                alarm[0] = 120;
+                show_debug_message(string("It's the fifth Snake's turn"));
+                show_debug_message("Attacked Player2 for "+string(global.e5_attack)+ " damage.");
+                show_debug_message("Player2 has " +string(global.p2_health)+ " left.");
+                break;
+            }
+            else if target == 2 and instance_exists(Player3)
+            {
+                global.p3_health -= global.e5_attack;  //Damage calc
+                alarm[0] = 120;
+                show_debug_message(string("It's the fifth Snake's turn"));
+                show_debug_message("Attacked Player3 for "+string(global.e5_attack)+ " damage.");
+                show_debug_message("Player3 has " +string(global.p3_health)+ " left.");
+                break;
+            }
+        }
+    }
+    if (turn ==8)
+    {
+        turn =1;
+    }
+    else
+    {
+        turn+=1;
+    }
 }
 
 //For now use existence to check comabt encounter ending
 //Replace later with variable for num enemies/players?
-if !instance_exists(Enemy)
+if !instance_exists(Enemy) and !instance_exists(Enemy2) and !instance_exists(Enemy3) and !instance_exists(Enemy4) and !instance_exists(Enemy5)
 {
+    show_debug_message("You Win!");
     global.has_triggered =true;
     alarm[5]= 150;
     room_goto(rm_overworld);
 }
 
-else if !instance_exists(Player) and !instance_exists(Player2)
+else if !instance_exists(Player) and !instance_exists(Player2) and !instance_exists(Player3)
 {
+    show_debug_message("You lose!");
     global.has_triggered =true;
     alarm[5]= 150;
     room_goto(rm_overworld);
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>isYourTurn = false;
+//Future sorting algorithm for speed stats
+//Enemyturn= 1;
+//Player1turn= 2;
+//Player2turn= 3;
+turn= 1;
+
+turn_order = ds_list_create();
+ds_list_add(turn_order, global.p1_speed, global.p2_speed, global.p3_speed, global.e1_speed, global.e2_speed, global.e3_speed, global.e4_speed, global.e5_speed);
+ds_list_sort(turn_order, false);
+
+/*global.p1_turn = ds_list_find_index(turn_order, global.p1_speed)+1;
+show_debug_message(string(global.p1_turn));
+global.p2_turn = ds_list_find_index(turn_order, global.p2_speed)+1;
+show_debug_message(string(global.p2_turn));
+global.p3_turn = ds_list_find_index(turn_order, global.p3_speed)+1;
+show_debug_message(string(global.p3_turn));
+
+e1_turn = ds_list_find_index(turn_order, global.e1_speed)+1;
+show_debug_message(string(e1_turn));
+e2_turn = ds_list_find_index(turn_order, global.e2_speed)+1;
+show_debug_message(string(e2_turn));
+e3_turn = ds_list_find_index(turn_order, global.e3_speed)+1;
+show_debug_message(string(e3_turn));
+e4_turn = ds_list_find_index(turn_order, global.e4_speed)+1;
+show_debug_message(string(e4_turn));
+e5_turn = ds_list_find_index(turn_order, global.e5_speed)+1;
+show_debug_message(string(e5_turn));*/
+
+global.p1_turn = 1;
+global.p2_turn = 2;
+global.p3_turn = 3;
+e1_turn = 4;
+e2_turn = 5; 
+e3_turn = 6;
+e4_turn = 7;
+e5_turn = 8;
+
+
+
 </string>
           </argument>
         </arguments>
@@ -232,7 +583,15 @@ menuHeight += 40;
     //draw_text(x + space, y + (m * space), string(menu[m]));
     // TODO fix this code to restrict menu options to interior of borders ^
     
-     draw_set_color(c_white);
+     if (mpos = m)
+     {
+        draw_set_color(c_red);
+     }
+     else
+     {
+        draw_set_color(c_white);
+     }
+     
      draw_text_ext(view_xview+padding,menuHeight,menu[m],sTxt_height,max_width);
 
     

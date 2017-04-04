@@ -113,6 +113,104 @@ if (keyboard_check_direct(ord('A')) or keyboard_check_direct(ord('W')) or keyboa
         inp= irandom(99);
         if (inp &gt;=global.combat_floor and inp &lt; global.trap_floor)
         { 
+            //Random number for combat encounter
+            while(true)
+            {
+                enc = irandom(0);
+                enc = 4 * enc + enc;
+                g=0; 
+                global.enemy_name1 = ds_list_find_value(global.monsters, enc);
+                for (i=0; i &lt; ds_list_find_value(global.encounter, enc+2); ++i)
+                {
+                    if (i==0)
+                    {
+                        global.e1_health = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+1)+1);
+                        global.e1_attack = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+1)+2);
+                        global.e1_speed = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+1)+3);
+                        global.e1_accuracy = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+1)+4);
+                        global.e1_name = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+1));
+                    }
+                    else if (i==1)
+                    {
+                        global.e2_health = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+1)+1);
+                        global.e2_attack = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+1)+2);
+                        global.e2_speed = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+1)+3);
+                        global.e2_accuracy = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+1)+4);
+                        global.e2_name = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+1));
+                    }
+                    else if (i==2)
+                    {
+                        global.e3_health = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+1)+1);
+                        global.e3_attack = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+1)+2);
+                        global.e3_speed = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+1)+3);
+                        global.e3_accuracy = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+1)+4);
+                        global.e3_name = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+1));
+                    }
+                    else if (i==3)
+                    {
+                        global.e4_health = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+1)+1);
+                        global.e4_attack = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+1)+2);
+                        global.e4_speed = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+1)+3);
+                        global.e4_accuracy = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+1)+4);
+                        global.e4_name = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+1));
+                    }
+                    else if (i==4)
+                    {
+                        global.e5_health = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+1)+1);
+                        global.e5_attack = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+1)+2);
+                        global.e5_speed = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+1)+3);
+                        global.e5_accuracy = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+1)+4);
+                        global.e5_name = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+1));
+                    }
+                    g= i;
+                }
+                //Handle if there are multiple enemy types
+                for (i = g; i &lt; ds_list_find_value(global.encounter, enc+4); ++i)
+                {
+                    if (i==0)
+                    {
+                        global.e1_health = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+3)+1);
+                        global.e1_attack = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+3)+2);
+                        global.e1_speed = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+3)+3);
+                        global.e1_accuracy = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+3)+4);
+                        global.e1_name = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+3));
+                    }
+                    else if (i==1)
+                    {
+                        global.e2_health = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+3)+1);
+                        global.e2_attack = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+3)+2);
+                        global.e2_speed = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+3)+3);
+                        global.e2_accuracy = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+3)+4);
+                        global.e2_name = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+3));
+                    }
+                    else if (i==2)
+                    {
+                        global.e3_health = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+3)+1);
+                        global.e3_attack = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+3)+2);
+                        global.e3_speed = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+3)+3);
+                        global.e3_accuracy = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+3)+4);
+                        global.e3_name = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+3));
+                    }
+                    else if (i==3)
+                    {
+                        global.e4_health = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+3)+1);
+                        global.e4_attack = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+3)+2);
+                        global.e4_speed = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+3)+3);
+                        global.e4_accuracy = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+3)+4);
+                        global.e4_name = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+3));
+                    }
+                    else if (i==4)
+                    {
+                        global.e5_health = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+3)+1);
+                        global.e5_attack = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+3)+2);
+                        global.e5_speed = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+3)+3);
+                        global.e5_accuracy = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+3)+4);
+                        global.e5_name = ds_list_find_value(global.monsters, ds_list_find_value(global.encounter, enc+3));
+                    }
+                }
+                break;
+            }
+            
             room_goto(rm_combat);
         }   //Combat
         
@@ -166,6 +264,42 @@ if (keyboard_check_direct(ord('A')) or keyboard_check_direct(ord('W')) or keyboa
           <argument>
             <kind>1</kind>
             <string>alarm[0] = 150;
+
+global.e1_health = 0;
+global.e1_attack = 0;
+global.e1_speed = 0;
+global.e1_accuracy = 0;
+global.e1_name= "";
+
+global.e2_health = 0;
+global.e2_attack = 0;
+global.e2_speed = 0;
+global.e2_accuracy = 0;
+global.e2_name= "";
+
+global.e3_health = 0;
+global.e3_attack = 0;
+global.e3_speed = 0;
+global.e3_accuracy = 0;
+global.e3_name= "";
+
+global.e4_health = 0;
+global.e4_attack = 0;
+global.e4_speed = 0;
+global.e4_accuracy = 0;
+global.e4_name= "";
+
+global.e5_health = 0;
+global.e5_attack = 0;
+global.e5_speed = 0;
+global.e5_accuracy = 0;
+global.e5_name= "";
+
+if global.p1_health ==0 and global.p2_health ==0 and global.p3_health ==0
+{
+    game_end();
+}
+
 </string>
           </argument>
         </arguments>
@@ -192,11 +326,18 @@ if (keyboard_check_direct(ord('A')) or keyboard_check_direct(ord('W')) or keyboa
 
 global.p1_health = 100;
 global.p1_speed = 2;
-global.p1_attack = 5;
+global.p1_attack = 10;
+global.p1_accuracy = 80;
 
 global.p2_health = 50; 
 global.p2_speed= 4;
 global.p2_attack = 10;
+global.p2_accuracy = 85;
+
+global.p3_health = 75;
+global.p3_speed =3;
+global.p3_attack = 10;
+global.p3_accuracy = 70;
 
 global.player_inventory = ds_map_create();
 //Created map for player inventory
@@ -206,6 +347,16 @@ ds_map_add(global.player_inventory, "Sword", 1);
 global.item_list = ds_map_create();
 ds_map_add(global.item_list, "Sword", 5);
 //Adds to the total item list for testing will be loaded in the future
+
+//List of all encounters
+global.encounter = ds_list_create();
+ds_list_add(global.encounter, "Snakes", 0, 5, 0, 0);
+//Adds encounter Snakes to the list of total encounters
+//Refers to name of encounter, position of snake enemies in the monster list, number of snakes
+//And two more values if the encounter would have multiple enemy types
+global.monsters = ds_list_create();
+ds_list_add(global.monsters, "Snake", 20, 5, 2, 75);
+//Name of monster, health, attack, speed, accuracy out of 100
 </string>
           </argument>
         </arguments>
