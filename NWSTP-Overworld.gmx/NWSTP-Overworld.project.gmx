@@ -15,6 +15,17 @@
     <sprite>sprites\sprite6</sprite>
     <sprite>sprites\sprite7</sprite>
     <sprite>sprites\sprite8</sprite>
+    <sprite>sprites\sp_battle_bandit</sprite>
+    <sprite>sprites\sp_battle_ranger</sprite>
+    <sprite>sprites\sp_battle_rogue</sprite>
+    <sprite>sprites\sp_battle_spider</sprite>
+    <sprite>sprites\sp_battle_wolf</sprite>
+    <sprite>sprites\sp_world_ranger_idle_north</sprite>
+    <sprite>sprites\sp_world_ranger_idle_south</sprite>
+    <sprite>sprites\sp_world_ranger_idle_west</sprite>
+    <sprite>sprites\sp_world_ranger_walk_north</sprite>
+    <sprite>sprites\sp_world_ranger_walk_south</sprite>
+    <sprite>sprites\sp_world_ranger_walk_west</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
