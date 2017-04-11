@@ -171,16 +171,15 @@ draw_line_width(view_xview, (view_yview+view_hview)-bw/2, view_xview+view_wview,
 
 
 // Draw Text On Screen
-draw_set_color(c_white);
-draw_text_ext(view_xview+padding,((view_yview+view_hview)-max_height)-(padding/2),global.display_txt,sTxt_height,max_width);
+draw_set_color(c_black);
+draw_text_ext(view_xview,view_yview,global.display_txt,sTxt_height,max_width);
+//draw_text_ext(view_xview+padding,((view_yview+view_hview)-max_height)-(padding/2),global.display_txt,sTxt_height,max_width);
 
 // Quit Dialogue/Textbox Event
 if txt == "" && global.placeholderTxt == ""{
     global.tboxActive = false;
     txt = global.txtCache;
     global.txtCache = "";
-    //TODO fix this shit right here sir
-    room_goto(txt_youngGirl_menu);
 }
 
 return txt;

@@ -11,7 +11,6 @@ switch(mpos)
 {
     case 0: 
     {   
-    show_debug_message("Inside case 0");
         room_goto(txt_huddledMan_A);
          break;
     }
