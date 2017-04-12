@@ -20,7 +20,6 @@ txt = argument0;
 font = argument1;
 key_press = argument2;
 txtSpeed = argument3;
-menu = argument5;
 
 //Normalize speed of text
 if txtSpeed <= 1 textSpeed = 1;
@@ -140,12 +139,15 @@ if global.printTimer <= 0 && (global.txtIndex < txt_length+1) {
 //Move onto next slide of text or exit dialogue
 if global.txtIndex >= txt_length && key_press
 {
+
     global.display_txt = "";
     txt = global.placeholderTxt;
     global.placeholderTxt = "";
     global.temp_placeholderTxt = "";
     global.txtIndex = 1;
     global.maxPrintTimer = txtSpeed;
+    
+    //room_goto(txt_youngGirl_menu);
 }
 
 //Timer for speed at which characters print on screen
@@ -169,35 +171,16 @@ draw_line_width(view_xview, (view_yview+view_hview)-bw/2, view_xview+view_wview,
 
 
 // Draw Text On Screen
-draw_set_color(c_black);
-draw_text_ext(view_xview,view_yview,global.display_txt,sTxt_height,max_width);
-//draw_text_ext(view_xview+padding,((view_yview+view_hview)-max_height)-(padding/2),global.display_txt,sTxt_height,max_width);
+draw_set_color(c_white);
+draw_text_ext(view_xview+padding,((view_yview+view_hview)-max_height)-(padding/2),global.display_txt,sTxt_height,max_width);
 
 // Quit Dialogue/Textbox Event
 if txt == "" && global.placeholderTxt == ""{
-    k_action = keyboard_check_pressed(vk_enter);
-    if hasMenu == true
-    {
-        //draw menu items
-        var m 
-        var menuHeight = 600
-        for (m = 0; m < array_length_1d(menu); m+= 1)
-        {
-            menuHeight += 40;
-            //draw_text(x + space, y + (m * space), string(menu[m]));
-            // TODO fix this code to restrict menu options to interior of borders ^
-            
-             draw_set_color(c_white);
-             draw_text_ext(view_xview+padding,menuHeight,menu[m],sTxt_height,max_width);
-        
-            
-        }
-    }
-    
-    
     global.tboxActive = false;
     txt = global.txtCache;
     global.txtCache = "";
+    //TODO fix this shit right here sir
+    room_goto(txt_youngGirl_menu);
 }
 
 return txt;

@@ -21,6 +21,7 @@ font = argument1;
 key_press = argument2;
 txtSpeed = argument3;
 
+
 //Normalize speed of text
 if txtSpeed <= 1 textSpeed = 1;
 if txtSpeed >= 15 textSpeed = 15;
@@ -176,11 +177,11 @@ draw_text_ext(view_xview+padding,((view_yview+view_hview)-max_height)-(padding/2
 
 // Quit Dialogue/Textbox Event
 if txt == "" && global.placeholderTxt == ""{
+    show_debug_message("Made it to dialogue quit");
     global.tboxActive = false;
     txt = global.txtCache;
     global.txtCache = "";
-    //TODO fix this shit right here sir
-    //room_goto(txt_youngGirl_menu);
+    room_goto(rm_overworld);
 }
 
 return txt;

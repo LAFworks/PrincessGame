@@ -15,7 +15,8 @@ txtSpeed - how fast the text will print on screen
 */
 
 //Initialize Vars
-
+hey = argument4;
+heya = argument5;
 txt = argument0;
 font = argument1;
 key_press = argument2;

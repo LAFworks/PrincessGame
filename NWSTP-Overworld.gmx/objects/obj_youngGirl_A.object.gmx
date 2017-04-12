@@ -35,7 +35,6 @@ global.printTimer = 0; // ""
 global.tboxActive = false; // Is the textbox active in the game? is someone speaking? (use this variable to pause events... or not)
 global.placeholderTxt = ""; // For use in the "scr_textbox" script. (Don't mess with this)
 global.temp_placeholderTxt = ""; // For use in the "scr_textbox" script. (Don't mess with this)
-global.hasMenu = true; //will tell script to execute menu printing code
 
 //For the automated dialogue boxes
 global.timer = 0;
@@ -60,37 +59,8 @@ global.auto = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///menu options
-menu[0] = "Help the girl rescue her brother";
-menu[1] = "Refuse to help.";
-
-//vertical space between menu items, for drawing's sake
-space = 64;
-//menu sprite position 
-mpos = 0;
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>///Strings
-sampleText = "A young girl, tears welling in her eyes, approaches you from the street. You might break down in tears just looking at her. “My brother and I were playing near the spider caves and he fell down a hole. I can’t see him, but I can hear him yelling. Please, you have to help him!”";
-sampleText2 = "We did it boss!";
+sampleText = "After painstakingly making your way through the tight crevices, you find a small boy covered in cobwebs and crying. You pick him up and make your way out of the cave. “Thank you so much!” the two kids beam at you, before running back towards the caves to play some more. Stupid kids.";
 </string>
           </argument>
         </arguments>
@@ -113,70 +83,20 @@ sampleText2 = "We did it boss!";
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///cursor movement on menu
-
-var move = 0;
-//moves along y-coordinates (up and down)
-move -= max(keyboard_check_pressed(vk_up), keyboard_check_pressed(ord("W")),0);
-
-//x-coord
-move += max(keyboard_check_pressed(vk_down), keyboard_check_pressed(ord("s")),0);
-
-if (move != 0)
-{
-    mpos += move;
-    //wrap around for out-of-bounds
-    if (mpos &lt; 0)
-    {
-        mpos = array_length_1d(menu) -1;
-    }
-    if (mpos &gt; array_length_1d(menu) -1)
-    { 
-        mpos = 0
-    }
-}
-
-var push;
-push = max(keyboard_check_released(vk_enter),keyboard_check_released(vk_shift),keyboard_check_released(vk_space), 0);
-
-if (push == 1)
-{
-show_debug_message("Push was made");
-    scr_menu_youngGirl();
-}
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>///Step Event
-
+/*
 ///Assign Controlls 
-k_action = vk_space;
-//k_action = keyboard_check_pressed(vk_space);
+k_action = keyboard_check_pressed(vk_space);
 
 //Activate Textbox
 if k_action
 {
-    global.tboxActive = true; //Will activate Textbox
-
+    
 }
+
+
+*/
+global.tboxActive = true; //Will activate Textbox
 </string>
           </argument>
         </arguments>
@@ -204,35 +124,7 @@ if k_action
 if global.tboxActive
 {
     //(string variable, font, key press, speed)
-    sampleText = scr_textbox(sampleText, fnt_default, k_action,2, menu); //lower number = faster
-}
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Draw Menu
-
-if global.hasMenu == true
-
-{
- scr_printMenu(menu)
+    sampleText = scr_textbox_youngGirl_finish(sampleText, fnt_default, vk_space ,2); //lower number = faster
 }
 </string>
           </argument>

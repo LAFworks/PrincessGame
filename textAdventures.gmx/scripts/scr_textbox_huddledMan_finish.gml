@@ -20,6 +20,8 @@ txt = argument0;
 font = argument1;
 key_press = argument2;
 txtSpeed = argument3;
+hey = argument4;
+heya = argument5;
 
 //Normalize speed of text
 if txtSpeed <= 1 textSpeed = 1;

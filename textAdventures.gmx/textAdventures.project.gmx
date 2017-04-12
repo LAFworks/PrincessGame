@@ -9,43 +9,19 @@
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\scr_textbox_youngGirl.gml</script>
-    <script>scripts\scr_textbox_youngGirl_finish.gml</script>
-    <script>scripts\scr_textbox_huddledMan_finish.gml</script>
-    <script>scripts\scr_textbox_huddledMan_init.gml</script>
+    <script>scripts\scr_textbox.gml</script>
     <script>scripts\scr_menu_youngGirl.gml</script>
-    <script>scripts\scr_menu_huddledMan_A.gml</script>
-    <script>scripts\scr_menu_huddledMan_AA.gml</script>
+    <script>scripts\scr_printMenu.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_default</font>
     <font>fonts\fnt_temp</font>
   </fonts>
   <objects name="objects">
-    <object>objects\obj_youngGirl_init</object>
     <object>objects\obj_youngGirl</object>
-    <object>objects\obj_huddledMan_init</object>
-    <object>objects\obj_youngGirl_A</object>
-    <object>objects\obj_huddledMan_AA</object>
-    <object>objects\obj_huddledMan_AB</object>
-    <object>objects\obj_huddledMan_AC</object>
-    <object>objects\obj_youngGirl_B</object>
-    <object>objects\obj_youngGirl_menu</object>
-    <object>objects\obj_huddledMan_menu_A</object>
-    <object>objects\obj_huddledMan_menu_AA</object>
-    <object>objects\object10</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
-    <room>rooms\txt_youngGirl_menu</room>
-    <room>rooms\txt_huddledMan_menu</room>
-    <room>rooms\txt_huddledMan_init</room>
-    <room>rooms\txt_youngGirl_A</room>
-    <room>rooms\txt_huddledMan_A</room>
-    <room>rooms\txt_huddledMan_AA</room>
-    <room>rooms\txt_huddledMan_AB</room>
-    <room>rooms\txt_huddledMan_AC</room>
-    <room>rooms\txt_youngGirl_B</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
