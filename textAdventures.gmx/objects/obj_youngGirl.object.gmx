@@ -64,6 +64,10 @@ global.auto = false;
 menu[0] = "Help the girl rescue her brother";
 menu[1] = "Refuse to help.";
 
+menu0[0] = "";
+menu0[1] = "";
+menu0[2] = "";
+menu0[3] = "";
 //vertical space between menu items, for drawing's sake
 space = 64;
 //menu sprite position 
@@ -168,15 +172,15 @@ show_debug_message("Push was made");
             <string>///Step Event
 
 ///Assign Controlls 
-k_action = vk_space;
-//k_action = keyboard_check_pressed(vk_space);
+//k_action = vk_space;
+k_action = keyboard_check_pressed(vk_space);
 
 //Activate Textbox
-if k_action
-{
+//if k_action
+//{
     global.tboxActive = true; //Will activate Textbox
 
-}
+//}
 </string>
           </argument>
         </arguments>
@@ -204,7 +208,7 @@ if k_action
 if global.tboxActive
 {
     //(string variable, font, key press, speed)
-    sampleText = scr_textbox(sampleText, fnt_default, k_action,2, menu); //lower number = faster
+    sampleText = scr_textbox(sampleText, fnt_default, k_action,2, menu, true); //lower number = faster
 }
 
 </string>

@@ -12,8 +12,8 @@ switch(mpos)
     case 0: 
     {   
         show_debug_message("Inside case 0");
-        sampleText = scr_textbox(sampleText2, fnt_default, k_action,2, menu, false); //lower number = faster
-         break;
+        sampleText = scr_textbox(sampleText2, fnt_default, k_action,2, menu0, false); //lower number = faster
+        break;
     }
     case 1: 
     {   

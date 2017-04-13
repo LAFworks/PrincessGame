@@ -10,6 +10,7 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\scr_textbox.gml</script>
+    <script>scripts\scr_textbox_old.gml</script>
     <script>scripts\scr_menu_youngGirl.gml</script>
     <script>scripts\scr_printMenu.gml</script>
   </scripts>
