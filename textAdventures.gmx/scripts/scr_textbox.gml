@@ -33,8 +33,8 @@ draw_set_font(font);
 
 // Draw Text On Screen
 draw_set_color(c_black);
-draw_text_ext(view_xview,view_yview,txt,1000,1000);
-
+//draw_text_ext(view_xview,view_yview,txt,1000,1000);
+draw_text_ext(10, 10, txt, -1, 1000);
 // Quit Dialogue/Textbox Event
 if txt == "" && global.placeholderTxt == ""{
     k_action = keyboard_check_pressed(vk_enter);    
