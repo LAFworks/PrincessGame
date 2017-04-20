@@ -200,14 +200,14 @@ if turn == e1_turn and !isYourTurn
                 break;
             }
         }
-    }
-    if (turn ==8)
-    {
-        turn =1;
-    }
-    else
-    {
-        turn+=1;
+        if (turn ==8)
+        {
+            turn =1;
+        }
+        else
+        {
+            turn+=1;
+        }
     }
 }
 
@@ -259,14 +259,14 @@ if turn == e2_turn and !isYourTurn
                 break;
             }
         }
-    }
-    if (turn ==8)
-    {
-        turn =1;
-    }
-    else
-    {
-        turn+=1;
+        if (turn ==8)
+        {
+            turn =1;
+        }
+        else
+        {
+            turn+=1;
+        }
     }
 }
 
@@ -318,14 +318,14 @@ if turn == e3_turn and !isYourTurn
                 break;
             }
         }
-    }
-    if (turn ==8)
-    {
-        turn =1;
-    }
-    else
-    {
-        turn+=1;
+        if (turn ==8)
+        {
+            turn =1;
+        }
+        else
+        {
+            turn+=1;
+        }
     }
 }
 
@@ -377,14 +377,14 @@ if turn == e4_turn and !isYourTurn
                 break;
             }
         }
-    }
-    if (turn ==8)
-    {
-        turn =1;
-    }
-    else
-    {
-        turn+=1;
+        if (turn ==8)
+        {
+            turn =1;
+        }
+        else
+        {
+            turn+=1;
+        }
     }
 }
 
@@ -436,14 +436,14 @@ if turn == e5_turn and !isYourTurn
                 break;
             }
         }
-    }
-    if (turn ==8)
-    {
-        turn =1;
-    }
-    else
-    {
-        turn+=1;
+        if (turn ==8)
+        {
+            turn =1;
+        }
+        else
+        {
+            turn+=1;
+        }
     }
 }
 
@@ -492,37 +492,145 @@ else if !instance_exists(Player) and !instance_exists(Player2) and !instance_exi
 //Player1turn= 2;
 //Player2turn= 3;
 turn= 1;
+n=1;
+place = 0;
 
 turn_order = ds_list_create();
 ds_list_add(turn_order, global.p1_speed, global.p2_speed, global.p3_speed, global.e1_speed, global.e2_speed, global.e3_speed, global.e4_speed, global.e5_speed);
 ds_list_sort(turn_order, false);
 
-/*global.p1_turn = ds_list_find_index(turn_order, global.p1_speed)+1;
+copy = ds_list_create();
+ds_list_copy(copy, turn_order);
+
+global.p1_turn = ds_list_find_index(turn_order, global.p1_speed);
+place = global.p1_turn;
+if (ds_list_find_value(copy, global.p1_turn) == noone)
+{
+    global.p1_turn += n+1;
+    n += 1;
+}
+else
+{
+    global.p1_turn += 1;
+    n = 1;
+}
+ds_list_replace(copy, place, noone);
 show_debug_message(string(global.p1_turn));
-global.p2_turn = ds_list_find_index(turn_order, global.p2_speed)+1;
+
+
+global.p2_turn = ds_list_find_index(turn_order, global.p2_speed);
+place = global.p2_turn;
+if (ds_list_find_value(copy, global.p2_turn) == noone)
+{
+    global.p2_turn += n+1;
+    n += 1;
+}
+else
+{
+    global.p2_turn += 1;
+    n = 1;
+}
+ds_list_replace(copy, place, noone);
 show_debug_message(string(global.p2_turn));
-global.p3_turn = ds_list_find_index(turn_order, global.p3_speed)+1;
+
+
+global.p3_turn = ds_list_find_index(turn_order, global.p3_speed);
+place = global.p3_turn;
+if (ds_list_find_value(copy, global.p3_turn) == noone)
+{
+    global.p3_turn += n+1;
+    n += 1;
+}
+else
+{
+    global.p3_turn += 1;
+    n = 1;
+}
+ds_list_replace(copy, place, noone);
 show_debug_message(string(global.p3_turn));
 
-e1_turn = ds_list_find_index(turn_order, global.e1_speed)+1;
+e1_turn = ds_list_find_index(turn_order, global.e1_speed);
+place = e1_turn;
+if (ds_list_find_value(copy, e1_turn) == noone)
+{
+    e1_turn += n+1;
+    n += 1;
+}
+else
+{
+    e1_turn += 1;
+    n = 1;
+}
+ds_list_replace(copy, place, noone);
 show_debug_message(string(e1_turn));
-e2_turn = ds_list_find_index(turn_order, global.e2_speed)+1;
-show_debug_message(string(e2_turn));
-e3_turn = ds_list_find_index(turn_order, global.e3_speed)+1;
-show_debug_message(string(e3_turn));
-e4_turn = ds_list_find_index(turn_order, global.e4_speed)+1;
-show_debug_message(string(e4_turn));
-e5_turn = ds_list_find_index(turn_order, global.e5_speed)+1;
-show_debug_message(string(e5_turn));*/
 
-global.p1_turn = 1;
-global.p2_turn = 2;
-global.p3_turn = 3;
-e1_turn = 4;
-e2_turn = 5; 
-e3_turn = 6;
-e4_turn = 7;
-e5_turn = 8;
+
+e2_turn = ds_list_find_index(turn_order, global.e2_speed);
+place = e2_turn;
+if (ds_list_find_value(copy, e2_turn) == noone)
+{
+    e2_turn += n+1;
+    n += 1;
+}
+else
+{
+    e2_turn += 1;
+    n = 1;
+}
+ds_list_replace(copy, place, noone);
+show_debug_message(string(e2_turn));
+
+
+e3_turn = ds_list_find_index(turn_order, global.e3_speed);
+place = e3_turn;
+if (ds_list_find_value(copy, e3_turn) == noone)
+{
+    e3_turn += n+1;
+    n += 1;
+}
+else
+{
+    e3_turn += 1;
+    n = 1;
+}
+ds_list_replace(copy, place, noone);
+show_debug_message(string(e3_turn));
+
+
+e4_turn = ds_list_find_index(turn_order, global.e4_speed);
+place = e4_turn;
+if (ds_list_find_value(copy, e4_turn) == noone)
+{
+    e4_turn += n+1;
+    n += 1;
+}
+else
+{
+    e4_turn += 1;
+    n = 1;
+}
+ds_list_replace(copy, place, noone);
+show_debug_message(string(e4_turn));
+
+
+e5_turn = ds_list_find_index(turn_order, global.e5_speed);
+place = e5_turn;
+if (ds_list_find_value(copy, e5_turn) == noone)
+{
+    e5_turn += n+1;
+    n += 1;
+}
+else
+{
+    e5_turn += 1;
+    n = 1;
+}
+ds_list_replace(copy, place, noone);
+show_debug_message(string(e5_turn));
+
+
+
+
 
 
 

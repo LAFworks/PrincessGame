@@ -33,6 +33,15 @@ global.trap_floor = 79
 global.merchant_floor = 84
 global.event_floor = 89
 global.loot_floor = 94
+
+global.player_inventory = ds_list_create();
+//Created map for player inventory
+//For testing will add a weapons to the inventory and equip them
+ds_list_add(global.player_inventory, "Sword", 1);
+//This value keeps track of the number of an item a player has in their inventory
+global.item_list = ds_list_create();
+ds_list_add(global.item_list, "Sword", 5);
+//Adds to the total item list for testing will be loaded in the future
 </string>
           </argument>
         </arguments>
@@ -100,11 +109,7 @@ global.loot_floor = 94
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (keyboard_check(vk_enter))
-{
-    room_goto(rm_combat);
-}
-//Debug for combat
+            <string>//Debug for combat
 if (keyboard_check_direct(ord('A')) or keyboard_check_direct(ord('W')) or keyboard_check_direct(ord('D')) or keyboard_check_direct(ord('S')))
 {
     //show_debug_message("Not working");
@@ -295,68 +300,8 @@ global.e5_speed = 0;
 global.e5_accuracy = 0;
 global.e5_name= "";
 
-if global.p1_health ==0 and global.p2_health ==0 and global.p3_health ==0
-{
-    game_end();
-}
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="2">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>randomize();
 
-global.p1_health = 100;
-global.p1_speed = 2;
-global.p1_attack = 10;
-global.p1_accuracy = 80;
-
-global.p2_health = 50; 
-global.p2_speed= 4;
-global.p2_attack = 10;
-global.p2_accuracy = 85;
-
-global.p3_health = 75;
-global.p3_speed =3;
-global.p3_attack = 10;
-global.p3_accuracy = 70;
-
-global.player_inventory = ds_map_create();
-//Created map for player inventory
-//For testing will add a weapons to the inventory and equip them
-ds_map_add(global.player_inventory, "Sword", 1);
-//This value keeps track of the number of an item a player has in their inventory
-global.item_list = ds_map_create();
-ds_map_add(global.item_list, "Sword", 5);
-//Adds to the total item list for testing will be loaded in the future
-
-//List of all encounters
-global.encounter = ds_list_create();
-ds_list_add(global.encounter, "Snakes", 0, 5, 0, 0);
-//Adds encounter Snakes to the list of total encounters
-//Refers to name of encounter, position of snake enemies in the monster list, number of snakes
-//And two more values if the encounter would have multiple enemy types
-global.monsters = ds_list_create();
-ds_list_add(global.monsters, "Snake", 20, 5, 2, 75);
-//Name of monster, health, attack, speed, accuracy out of 100
 </string>
           </argument>
         </arguments>
