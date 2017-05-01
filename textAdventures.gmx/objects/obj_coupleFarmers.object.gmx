@@ -61,8 +61,8 @@ global.auto = false;
           <argument>
             <kind>1</kind>
             <string>///menu options
-menu[0] = "Help the girl rescue her brother";
-menu[1] = "Refuse to help.";
+menu[0] = "Explain that you’re friendly.";
+menu[1] = "Accept their surrender.";
 
 menu0[0] = "";
 menu0[1] = "";
@@ -93,10 +93,9 @@ mpos = 0;
           <argument>
             <kind>1</kind>
             <string>///Strings
-sampleText = "A young girl, tears welling in her eyes, approaches you from the street. You might break down in tears just looking at her. “My brother and I were playing near the spider caves and he fell down a hole. I can’t see him, but I can hear him yelling. Please, you have to help him!”";
-sampleText2 = "After painstakingly making your way through the tight crevices, you find a small boy covered in cobwebs and crying. You pick him up and make your way out of the cave. “Thank you so much!” the two kids beam at you, before running back towards the caves to play some more. Stupid kids. (small coin reward)";
-sampleText3 = "“Why are you so mean? Please help!” Bursting into tears, she runs away, crying out for help. Serves her right, bothering a man to help her save her brother.";
-sampleText4 = "After painstakingly making your way through the tight crevices, you find a small boy covered in cobwebs and crying. You pick him up and make your way out of the cave, but just as you exit, a pack of spiders rush out from the darkness. The children run away, screaming. You’re tempted to follow suit. (Battle: spiders)";
+sampleText = "A couple of famers on a nearby stead, seeing you and your well-armed companions, bow to the ground and plead for mercy. “We surrender!” one says, while another cries, “Just take our money and let us live!” They must think you’re mercenaries or bandits.";
+sampleText2 = "Upon hearing this, the farmer’s laments are at once silenced. “If that’s the case, sorry for the confusion, traveler. Here, have some of our goods anyways.” They hand you a few wares and some coins. You feel all the better for it. (small coin reward and minor potion, antidote, or trap spring)";
+sampleText3 = "The farmers empty their pockets and retreat back into the stead. That was easy. (small coin reward)";
 </string>
           </argument>
         </arguments>

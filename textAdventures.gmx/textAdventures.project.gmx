@@ -10,8 +10,11 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\scr_textbox.gml</script>
-    <script>scripts\scr_textbox_old.gml</script>
     <script>scripts\scr_menu_youngGirl.gml</script>
+    <script>scripts\scr_menu_brawnyBearded.gml</script>
+    <script>scripts\scr_menu_steetSideSalesman.gml</script>
+    <script>scripts\scr_menu_coupleFarmers.gml</script>
+    <script>scripts\scr_menu_inn_robedConjurer.gml</script>
     <script>scripts\scr_printMenu.gml</script>
   </scripts>
   <fonts name="fonts">
@@ -20,9 +23,17 @@
   </fonts>
   <objects name="objects">
     <object>objects\obj_youngGirl</object>
+    <object>objects\obj_brawnyBearded</object>
+    <object>objects\obj_streetSideSalesman</object>
+    <object>objects\obj_coupleFarmers</object>
+    <object>objects\obj_inn_robedConjurer</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
+    <room>rooms\brawnyBearded</room>
+    <room>rooms\coupleFarmers</room>
+    <room>rooms\streetSideSalesman</room>
+    <room>rooms\inn_robedConjurer</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
