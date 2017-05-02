@@ -29,10 +29,10 @@
     <object>objects\obj_inn_robedConjurer</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\room0</room>
-    <room>rooms\brawnyBearded</room>
-    <room>rooms\coupleFarmers</room>
     <room>rooms\streetSideSalesman</room>
+    <room>rooms\coupleFarmers</room>
+    <room>rooms\brawnyBearded</room>
+    <room>rooms\young_girl</room>
     <room>rooms\inn_robedConjurer</room>
   </rooms>
   <help>

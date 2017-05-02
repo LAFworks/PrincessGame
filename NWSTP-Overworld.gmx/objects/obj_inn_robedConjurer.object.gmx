@@ -63,8 +63,8 @@ wait = true;
           <argument>
             <kind>1</kind>
             <string>///menu options
-menu[0] = "Help the girl rescue her brother";
-menu[1] = "Refuse to help.";
+menu[0] = "Attack the cutpurses.";
+menu[1] = "Enjoy the show.";
 
 menu0[0] = "";
 menu0[1] = "";
@@ -95,10 +95,34 @@ mpos = 0;
           <argument>
             <kind>1</kind>
             <string>///Strings
-sampleText = "A young girl, tears welling in her eyes, approaches you from the street. You might break down in tears just looking at her. “My brother and I were playing near the spider caves and he fell down a hole. I can’t see him, but I can hear him yelling. Please, you have to help him!”";
-sampleText2 = "After painstakingly making your way through the tight crevices, you find a small boy covered in cobwebs and crying. You pick him up and make your way out of the cave. “Thank you so much!” the two kids beam at you, before running back towards the caves to play some more. Stupid kids. (small coin reward)";
-sampleText3 = "“Why are you so mean? Please help!” Bursting into tears, she runs away, crying out for help. Serves her right, bothering a man to help her save her brother.";
-sampleText4 = "After painstakingly making your way through the tight crevices, you find a small boy covered in cobwebs and crying. You pick him up and make your way out of the cave, but just as you exit, a pack of spiders rush out from the darkness. The children run away, screaming. You’re tempted to follow suit. (Battle: spiders)";
+sampleText = "You decide to rest for the night and enter a nearby inn. 
+
+A robed conjurer stands in the center of the packed crowd of inn patrons. He waves his hands in grand gestures, performing feats of minor prestidigitation. Not quite impressed, you instead scan the crowd and notice two gnolls picking pockets and cutting purses. They must be confederates of this performer.";
+sampleText2 = "You draw your weapons and exclaim that the mage is nothing more than a thief. People within the crowd pat themselves down and notice that their pockets and purses are considerably lighter. The wizard cries out in rage and sprints toward you, followed by his companions. The crowd quickly disperses as you find yourself in the midst of a battle.";
+sampleText3 = "Better to not draw attention. After all, they seem smart enough not to rob armed patrons. You watch as the wizard shoots sparks from his hands and applaud when appropriate.";
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>room_goto(rm_combat);
 </string>
           </argument>
         </arguments>
@@ -206,7 +230,8 @@ k_action = keyboard_check_pressed(vk_space);
 //if k_action
 //{
     global.tboxActive = true; //Will activate Textbox
-    if wait = false
+    
+    if wait == false
     {
         room_goto(rm_overworld);
     }

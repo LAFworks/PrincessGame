@@ -38,9 +38,13 @@ global.player_inventory = ds_list_create();
 //Created map for player inventory
 //For testing will add a weapons to the inventory and equip them
 ds_list_add(global.player_inventory, "Sword", 1);
+ds_list_add(global.player_inventory, "Axe", 1);
+ds_list_add(global.player_inventory, "Bow", 1);
 //This value keeps track of the number of an item a player has in their inventory
 global.item_list = ds_list_create();
 ds_list_add(global.item_list, "Sword", 5);
+ds_list_add(global.item_list, "Axe", 10);
+ds_list_add(global.item_list, "Bow", 5);
 //Adds to the total item list for testing will be loaded in the future
 </string>
           </argument>
@@ -221,22 +225,22 @@ if (keyboard_check_direct(ord('A')) or keyboard_check_direct(ord('W')) or keyboa
         
         else if (inp &gt;=global.trap_floor and inp &lt; global.merchant_floor)
         {
-            room_goto(rm_trap);
+            room_goto(young_girl);
         }   //Traps
         
         else if (inp &gt;=global.merchant_floor and inp &lt; global.event_floor)
         {
-            room_goto(rm_merchant);
+            room_goto(streetSideSalesman);
         }   //Merchant
         
         else if (inp &gt;=global.event_floor and inp &lt; global.loot_floor)
         {
-            room_goto(rm_event);
+            room_goto(inn_robedConjurer);
         }   //Event
         
         else if (inp &gt;=global.loot_floor and inp &lt; 99)
         {
-            room_goto(rm_loot);
+            room_goto(coupleFarmers);
         }   //Loot   
         else
         {

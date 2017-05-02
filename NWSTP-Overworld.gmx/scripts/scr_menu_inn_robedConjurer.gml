@@ -13,17 +13,14 @@ switch(mpos)
     {   
         show_debug_message("Inside case 0");
         sampleText = scr_textbox(sampleText2, fnt_default, k_action,2, menu0, false); //lower number = faster
-        alarm[0] = 300;
+        alarm[1] = 300;
         break;
     }
     case 1: 
     {   
-    //this should produce sampleText 3 OR 4 at random. 
-    //Object currently has both.
-    //TODO: sampleText4 leads to battle
         show_debug_message("Inside case 1");
         sampleText = scr_textbox(sampleText3, fnt_default, k_action,2, menu0, false); //lower number = faster
-        alarm[0]= 300;
+        alarm[0] = 300;
         break;
     }
     default:

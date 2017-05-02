@@ -40,8 +40,6 @@ global.hasMenu = true; //will tell script to execute menu printing code
 //For the automated dialogue boxes
 global.timer = 0;
 global.auto = false;
-
-wait = true;
 </string>
           </argument>
         </arguments>
@@ -63,8 +61,8 @@ wait = true;
           <argument>
             <kind>1</kind>
             <string>///menu options
-menu[0] = "Help the girl rescue her brother";
-menu[1] = "Refuse to help.";
+menu[0] = "Agree to fight.";
+menu[1] = "Decline to fight.";
 
 menu0[0] = "";
 menu0[1] = "";
@@ -95,33 +93,10 @@ mpos = 0;
           <argument>
             <kind>1</kind>
             <string>///Strings
-sampleText = "A young girl, tears welling in her eyes, approaches you from the street. You might break down in tears just looking at her. “My brother and I were playing near the spider caves and he fell down a hole. I can’t see him, but I can hear him yelling. Please, you have to help him!”";
-sampleText2 = "After painstakingly making your way through the tight crevices, you find a small boy covered in cobwebs and crying. You pick him up and make your way out of the cave. “Thank you so much!” the two kids beam at you, before running back towards the caves to play some more. Stupid kids. (small coin reward)";
-sampleText3 = "“Why are you so mean? Please help!” Bursting into tears, she runs away, crying out for help. Serves her right, bothering a man to help her save her brother.";
-sampleText4 = "After painstakingly making your way through the tight crevices, you find a small boy covered in cobwebs and crying. You pick him up and make your way out of the cave, but just as you exit, a pack of spiders rush out from the darkness. The children run away, screaming. You’re tempted to follow suit. (Battle: spiders)";
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>wait = false;
+sampleText = "Two brawny, bearded men approach you. “We’re fighters in at the local arena, and we’re looking to train with some new people. How about a match?” One of them jabs you in the chest with his large hand. That hurt you more than you expected.";
+sampleText2 = "“Excellent! Let us know if we’re going too hard on you.” ";
+//on winning: 
+sampleText3 = "“My, that was a tough fight! I even started to sweat a little,” one of the burly men roars. “Thanks for the pointers, and be sure to come by and see how much we’ll improve.” He tosses some armor your way, and you manage to catch it. It’s always nice to impress the big boys. (add random armor to inventory)";
 </string>
           </argument>
         </arguments>
@@ -206,10 +181,7 @@ k_action = keyboard_check_pressed(vk_space);
 //if k_action
 //{
     global.tboxActive = true; //Will activate Textbox
-    if wait = false
-    {
-        room_goto(rm_overworld);
-    }
+
 //}
 </string>
           </argument>

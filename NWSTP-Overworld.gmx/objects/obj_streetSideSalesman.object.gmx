@@ -63,8 +63,8 @@ wait = true;
           <argument>
             <kind>1</kind>
             <string>///menu options
-menu[0] = "Help the girl rescue her brother";
-menu[1] = "Refuse to help.";
+menu[0] = "Purchase one of his items.";
+menu[1] = "Continue on your way.";
 
 menu0[0] = "";
 menu0[1] = "";
@@ -95,10 +95,8 @@ mpos = 0;
           <argument>
             <kind>1</kind>
             <string>///Strings
-sampleText = "A young girl, tears welling in her eyes, approaches you from the street. You might break down in tears just looking at her. “My brother and I were playing near the spider caves and he fell down a hole. I can’t see him, but I can hear him yelling. Please, you have to help him!”";
-sampleText2 = "After painstakingly making your way through the tight crevices, you find a small boy covered in cobwebs and crying. You pick him up and make your way out of the cave. “Thank you so much!” the two kids beam at you, before running back towards the caves to play some more. Stupid kids. (small coin reward)";
-sampleText3 = "“Why are you so mean? Please help!” Bursting into tears, she runs away, crying out for help. Serves her right, bothering a man to help her save her brother.";
-sampleText4 = "After painstakingly making your way through the tight crevices, you find a small boy covered in cobwebs and crying. You pick him up and make your way out of the cave, but just as you exit, a pack of spiders rush out from the darkness. The children run away, screaming. You’re tempted to follow suit. (Battle: spiders)";
+sampleText = "A street-side salesman hails the players and offers to sell them powerful magical items. He gestures over his table, presenting the various objects: boots of levitation, the rock of undead destruction, a vampire-repellant amulet, and the like. They aren’t just some boots with large heels, or a large rock, or a string with garlic on it. No way, powerful magic in each one.";
+sampleText2 = "At random, you reach down, pluck one of his wares from the table, and exclaim your desire to buy it. “Excellent choice, if I may say so sir!” Only after you deposit a few coins into his hands do you take the time to look your purchase over. (add random minor item to inventory)";
 </string>
           </argument>
         </arguments>
@@ -206,10 +204,11 @@ k_action = keyboard_check_pressed(vk_space);
 //if k_action
 //{
     global.tboxActive = true; //Will activate Textbox
-    if wait = false
+    if wait == false
     {
         room_goto(rm_overworld);
     }
+
 //}
 </string>
           </argument>

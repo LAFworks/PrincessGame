@@ -28,9 +28,15 @@
             <string>///menu options
 
 //replace "temp" with actual menu options
-menu[0] = "Attack";
-menu[1] = "Heal";
-menu[2] = "Run";
+menu[0,0] = "Attack";
+menu[0,1] = "Heal";
+menu[0,2] = "Run";
+
+menu[1,0] = string(global.e1_name);
+menu[1,1] = string(global.e2_name);
+menu[1,2] = string(global.e3_name);
+menu[1,3] = string(global.e4_name);
+menu[1,4] = string(global.e5_name);
 
 //vertical space between menu items, for drawing's sake
 space = 64;
@@ -38,6 +44,8 @@ space = 64;
 mpos = 0;
 
 text =1;
+
+global.screen = 0;
 
 
 </string>
@@ -100,9 +108,9 @@ if (move != 0)
     //wrap around for out-of-bounds
     if (mpos &lt; 0)
     {
-        mpos = array_length_1d(menu) -1;
+        mpos = array_length_2d(menu, global.screen) -1;
     }
-    if (mpos &gt; array_length_1d(menu) -1)
+    if (mpos &gt; array_length_2d(menu, global.screen) -1)
     { 
         mpos = 0
     }
@@ -685,9 +693,16 @@ draw_line_width(view_xview, (view_yview+view_hview)-bw/2, view_xview+view_wview,
 //draw menu items
 var m 
 var menuHeight = 600
-for (m = 0; m &lt; array_length_1d(menu); m+= 1)
+for (m = 0; m &lt; array_length_2d(menu, global.screen); m+= 1)
 {
-menuHeight += 40;
+    if global.screen == 0
+    {    
+        menuHeight += 40;
+    }
+    else
+    {
+        menuHeight += 20;
+    }
     //draw_text(x + space, y + (m * space), string(menu[m]));
     // TODO fix this code to restrict menu options to interior of borders ^
     
@@ -699,8 +714,8 @@ menuHeight += 40;
      {
         draw_set_color(c_white);
      }
-     
-     draw_text_ext(view_xview+padding,menuHeight,menu[m],sTxt_height,max_width);
+    
+     draw_text_ext(view_xview+padding,menuHeight,menu[global.screen, m],sTxt_height,max_width);
 
     
 }

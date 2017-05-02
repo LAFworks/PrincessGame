@@ -79,7 +79,7 @@ encounter=false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (isMoving == false)
+            <string>if (isMoving == false and global.is_open == false)
 {
     if (keyboard_check(ord('D')))
     {
@@ -140,13 +140,11 @@ encounter=false;
     
     if (keyboard_check(ord('P')))
     {
+        show_debug_message(string(global.p1_attack));
         show_debug_message(string(global.p2_attack));
+        show_debug_message(string(global.p3_attack));
     }
     
-    if (keyboard_check(ord('E')))
-    {
-        global.p1_attack += ds_map_find_value(global.item_list, "Sword");
-    }
 }
 
 /*
@@ -157,7 +155,7 @@ encounter=false;
 if (isMoving == true)
 {
    x += speedX;
-   y += speedY
+   y += speedY;
    
    moveTimer -= moveSpeed;
    if (moveTimer == 0) isMoving = false;

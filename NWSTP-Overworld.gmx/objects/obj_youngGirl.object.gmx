@@ -206,7 +206,8 @@ k_action = keyboard_check_pressed(vk_space);
 //if k_action
 //{
     global.tboxActive = true; //Will activate Textbox
-    if wait = false
+    
+    if wait == false
     {
         room_goto(rm_overworld);
     }

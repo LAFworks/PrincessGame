@@ -49,15 +49,33 @@
   <backgrounds name="background">
     <background>background\background0</background>
     <background>background\background1</background>
+    <background>background\background28</background>
+    <background>background\background29</background>
+    <background>background\battle_cave</background>
+    <background>background\battle_desert</background>
+    <background>background\battle_forest</background>
+    <background>background\battle_grassland</background>
+    <background>background\battle_ruins</background>
+    <background>background\battle_snow</background>
+    <background>background\tile1</background>
+    <background>background\tile2</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\scr_text.gml</script>
     <script>scripts\scr_menu.gml</script>
+    <script>scripts\scr_menu_brawnyBearded.gml</script>
+    <script>scripts\scr_menu_coupleFarmers.gml</script>
+    <script>scripts\scr_menu_inn_robedConjurer.gml</script>
+    <script>scripts\scr_menu_steetSideSalesman.gml</script>
+    <script>scripts\scr_menu_youngGirl.gml</script>
+    <script>scripts\scr_printMenu.gml</script>
+    <script>scripts\scr_textbox.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt</font>
     <font>fonts\fnt_temp</font>
+    <font>fonts\fnt_default</font>
   </fonts>
   <objects name="objects">
     <object>objects\obj_grass</object>
@@ -81,15 +99,26 @@
     <object>objects\obj_menu</object>
     <object>objects\Inventory_Menu</object>
     <object>objects\Main_Menu</object>
+    <object>objects\obj_brawnyBearded</object>
+    <object>objects\obj_coupleFarmers</object>
+    <object>objects\obj_inn_robedConjurer</object>
+    <object>objects\obj_streetSideSalesman</object>
+    <object>objects\obj_youngGirl</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_mainmenu</room>
     <room>rooms\rm_overworld</room>
+    <room>rooms\rm_overworld_test</room>
     <room>rooms\rm_trap</room>
     <room>rooms\rm_combat</room>
     <room>rooms\rm_event</room>
     <room>rooms\rm_merchant</room>
     <room>rooms\rm_loot</room>
+    <room>rooms\brawnyBearded</room>
+    <room>rooms\coupleFarmers</room>
+    <room>rooms\inn_robedConjurer</room>
+    <room>rooms\streetSideSalesman</room>
+    <room>rooms\young_girl</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
