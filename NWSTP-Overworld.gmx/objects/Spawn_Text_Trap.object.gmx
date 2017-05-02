@@ -50,8 +50,8 @@
             <kind>1</kind>
             <string>if (mouse_check_button_released(mb_left) and isdrawn ==false)
 {
-    scr_text("O Geez, Rick It's A Trap!  
-    Looks Like Your Attack Went Down M-Morty.", 0.2,mouse_x,mouse_y);
+    scr_text("You've encountered a Trap of Weakness. 
+    Your party's attack has been severely reduced.", 0.2,mouse_x,mouse_y);
              
     isdrawn =true;
 }

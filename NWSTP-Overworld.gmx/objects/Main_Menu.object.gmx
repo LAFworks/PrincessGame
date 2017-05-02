@@ -195,7 +195,7 @@ ds_list_add(global.monsters, "Snake", 20, 5, 2, 75);
           <argument>
             <kind>1</kind>
             <string>    draw_set_color(c_black);
-    draw_text_transformed(room_width/3,room_height/3,"I'll Save the Princess", 4, 4, 0);
+    draw_text_transformed(room_width/3,room_height/3,"We'll Save the Princess", 4, 4, 0);
     
     for (i=1; i&lt;= menu_text[page, 0]; i+=1)
     {
