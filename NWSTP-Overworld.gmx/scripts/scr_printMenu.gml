@@ -73,9 +73,16 @@ var m
 var menuHeight = 600
 for (m = 0; m < array_length_1d(menu); m+= 1)
 {
+    if (m == mpos)
+    {
+        draw_set_color(c_red);
+    }
+    else
+    {
+        draw_set_color(c_white);
+    }
     show_debug_message("printing menu item " + menu[m]);
     menuHeight += 40;
-    draw_set_color(c_white);
     draw_text_ext(view_xview+padding,menuHeight,menu[m],sTxt_height,max_width);
 }
 
