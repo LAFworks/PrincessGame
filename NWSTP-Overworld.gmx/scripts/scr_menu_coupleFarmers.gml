@@ -13,14 +13,14 @@ switch(mpos)
     {   
         show_debug_message("Inside case 0");
         sampleText = scr_textbox(sampleText2, fnt_default, k_action,2, menu0, false); //lower number = faster
-        alarm[0] = 300;
+        alarm[0] = 150;
         break;
     }
     case 1: 
     {   
         show_debug_message("Inside case 1");
         sampleText = scr_textbox(sampleText3, fnt_default, k_action,2, menu0, false); //lower number = faster
-        alarm[0] = 300;
+        alarm[0] = 150;
         break;
     }
     default:

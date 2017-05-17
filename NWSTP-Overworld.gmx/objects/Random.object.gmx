@@ -117,7 +117,7 @@ ds_list_add(global.item_list, "Bow", 5);
 if (keyboard_check_direct(ord('A')) or keyboard_check_direct(ord('W')) or keyboard_check_direct(ord('D')) or keyboard_check_direct(ord('S')))
 {
     //show_debug_message("Not working");
-    if (global.has_triggered == false and obj_player_overworld.isMoving == false)
+    if (global.has_triggered == false and obj_player_overworld.isMoving == false and global.is_open == false)
     {   
         inp= irandom(99);
         if (inp &gt;=global.combat_floor and inp &lt; global.trap_floor)
@@ -245,7 +245,7 @@ if (keyboard_check_direct(ord('A')) or keyboard_check_direct(ord('W')) or keyboa
         else
         {
             global.has_triggered = true;
-            alarm[0]=30;
+            alarm[0]=90;
         }
         
     }

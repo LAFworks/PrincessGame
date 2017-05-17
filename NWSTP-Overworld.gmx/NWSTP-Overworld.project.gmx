@@ -45,6 +45,7 @@
     <sprite>sprites\sp_world_ranger_walk_north</sprite>
     <sprite>sprites\sp_world_ranger_walk_south</sprite>
     <sprite>sprites\sp_world_ranger_walk_west</sprite>
+    <sprite>sprites\sprite21</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -104,6 +105,7 @@
     <object>objects\obj_inn_robedConjurer</object>
     <object>objects\obj_streetSideSalesman</object>
     <object>objects\obj_youngGirl</object>
+    <object>objects\InvisibleWall</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_mainmenu</room>
